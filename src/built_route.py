@@ -23,7 +23,7 @@ def find_shortest_route(start_coords: Tuple[float, float],
     dest_node = ox.distance.nearest_nodes(graph, *end_coords)
     shortest_route = nx.shortest_path(graph, source=orig_node, target=dest_node, weight=optimizer)
     gdf_edges = ox.graph_to_gdfs(graph, nodes=False).reset_index()
-    gdf_edges.to_file("route_info.json", driver="GeoJSON")
+    # gdf_edges.to_file("route_info.json", driver="GeoJSON")
     shortest_route_map = gdf_edges[gdf_edges['u'].isin(shortest_route[:-1]) & gdf_edges['v'].isin(shortest_route[1:])].explore()
     start_marker = folium.Marker(location = start_coords[::-1], icon = folium.Icon(color='green'), popup='Start')
     end_marker = folium.Marker(location = end_coords[::-1], icon = folium.Icon(color='red'), popup='End')
