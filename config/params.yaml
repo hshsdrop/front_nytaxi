@@ -1,0 +1,8 @@
+backend:
+  url:
+    'https://main-bvxea6i-k4o37wg5i6vqs.de-2.platformsh.site/predict'
+map:
+  width:
+    800
+  height:
+    650
